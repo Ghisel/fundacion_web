@@ -1,0 +1,19 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+
+<h1>Inscripción al curso</h1>
+
+<h2>{{ curso.nombre }}</h2>
+
+<form method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Enviar inscripción</button>
+
+</form>
+
+{% endblock %}

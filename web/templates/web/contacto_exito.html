@@ -1,0 +1,14 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+
+<div style="text-align:center; padding:60px;">
+    <h2>¡Mensaje enviado correctamente!</h2>
+    <p>Gracias por comunicarte con nosotros. Te responderemos a la brevedad.</p>
+
+    <a href="{% url 'inicio' %}" class="btn-inscribirse">
+        Volver al inicio
+    </a>
+</div>
+
+{% endblock %}

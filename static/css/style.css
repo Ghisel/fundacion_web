@@ -1,0 +1,346 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F8F8F8;
+    color: #333333;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== HEADER ===== */
+.header {
+    background-color: #FFFFFF;
+    padding: 15px 0;
+    border-bottom: 3px solid #F58220;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+}
+
+/* ===== NAV ===== */
+.nav a {
+    text-decoration: none;
+    color: #333333;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #F58220;
+}
+
+.btn-nav {
+    background-color: #F58220;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.btn-nav:hover {
+    background-color: #D96B10;
+}
+
+/* ===== MAIN ===== */
+.main {
+    padding: 60px 0;
+    min-height: 70vh;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: #EEEEEE;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
+/* ===== HERO INSTITUCIONAL ===== */
+
+/* ===== HERO INSTITUCIONAL ===== */
+
+.hero {
+    background-color: #FFFFFF;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.btn-principal {
+    background-color: #F58220;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #D96B10;
+}
+
+.contenedor-cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card-curso {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-curso img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.estado.abierto {
+    color: green;
+    font-weight: bold;
+}
+
+.estado.cerrado {
+    color: red;
+    font-weight: bold;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+.imagen-curso,
+.imagen-novedad {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-curso,
+.card-novedad {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+/* TÍTULO */
+.titulo-seccion {
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* CONTENEDOR 3 COLUMNAS */
+.contenedor-cursos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 40px;
+}
+
+/* TARJETA */
+.card-curso {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-curso:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGEN */
+.imagen-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.imagen-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BADGE */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 20px;
+    color: white;
+}
+
+.abierta {
+    background: #28a745;
+}
+
+.cerrada {
+    background: #dc3545;
+}
+
+/* BOTONES */
+.btn-inscribirse {
+    display: inline-block;
+    padding: 10px 15px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn-inscribirse:hover {
+    background: #333;
+}
+
+.btn-cerrado {
+    padding: 10px 15px;
+    background: #999;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .contenedor-cursos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .contenedor-cursos {
+        grid-template-columns: 1fr;
+    }
+}
+.contacto-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 40px;
+}
+
+.contacto-info {
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.contacto-links a {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+}
+
+.btn-mail {
+    background: #333;
+}
+
+.btn-instagram {
+    background: #E1306C;
+}
+
+.btn-facebook {
+    background: #1877F2;
+}
+
+.contacto-form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+    }
+}
+

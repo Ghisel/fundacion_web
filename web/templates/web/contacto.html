@@ -1,0 +1,78 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+
+<h1 class="titulo-seccion">Contacto</h1>
+
+<div class="contacto-container">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="contacto-info">
+
+        <h2>Información de Contacto</h2>
+
+        <p><strong>📍 Dirección:</strong> Tu dirección aquí</p>
+        <p><strong>📞 Teléfono:</strong> +54 9 1234 567890</p>
+        <p><strong>✉ Email:</strong> contacto@fundacion.org</p>
+
+        <div class="contacto-links">
+            <a href="https://wa.me/5491234567890" target="_blank" class="btn-whatsapp">
+                WhatsApp
+            </a>
+
+            <a href="mailto:contacto@fundacion.org" class="btn-mail">
+                Enviar Email
+            </a>
+
+            <a href="https://instagram.com/tucuenta" target="_blank" class="btn-instagram">
+                Instagram
+            </a>
+
+            <a href="https://facebook.com/tucuenta" target="_blank" class="btn-facebook">
+                Facebook
+            </a>
+        </div>
+
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="contacto-form">
+
+        <h2>Enviános un mensaje</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+
+            <div class="form-group">
+                {{ form.nombre.label_tag }}
+                {{ form.nombre }}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                {{ form.asunto.label_tag }}
+                {{ form.asunto }}
+            </div>
+
+            <div class="form-group">
+                {{ form.mensaje.label_tag }}
+                {{ form.mensaje }}
+            </div>
+
+            <button type="submit" class="btn-enviar">
+                Enviar Mensaje
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

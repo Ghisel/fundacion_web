@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FUN.CE.F | Fundación Centro de Fortalezas</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'img/logoFundacion.jpeg' %}" alt="FUN.CE.F Logo">
+            </div>
+
+            <nav class="nav">
+                <a href="{% url 'inicio' %}">Inicio</a>
+                <a href="{% url 'nosotros' %}">Nosotros</a>
+                <a href="{% url 'cursos' %}">Cursos</a>
+                <a href="{% url 'novedades' %}">Novedades</a>
+                <a href="{% url 'contacto' %}">Contacto</a>
+                <a href="https://moodle.org/?lang=es_ar" class="btn-nav" target="_blank">Mi curso</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 FUN.CE.F - Fundación Centro de Fortalezas</p>
+        </div>
+    </footer>
+
+</body>
+</html>

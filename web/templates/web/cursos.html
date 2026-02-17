@@ -1,0 +1,56 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+
+<h1 class="titulo-seccion">Cursos Disponibles</h1>
+
+<div class="contenedor-cursos">
+
+    {% for curso in cursos %}
+        <div class="card-curso">
+
+            {% if curso.imagen %}
+                <div class="imagen-container">
+                    <img src="{{ curso.imagen.url }}" alt="{{ curso.nombre }}">
+                    
+                    {% if curso.inscripcion_habilitada %}
+                        <span class="badge abierta">Inscripción Abierta</span>
+                    {% else %}
+                        <span class="badge cerrada">Cerrado</span>
+                    {% endif %}
+
+                </div>
+            {% endif %}
+
+            <div class="card-body">
+                <h3>{{ curso.nombre }}</h3>
+
+                <p class="descripcion">
+                    {{ curso.descripcion|truncatewords:18 }}
+                </p>
+
+                <p class="precio">$ {{ curso.valor }}</p>
+                <p>Estado guardado: {{ curso.estado }}</p>
+                <p>Inscripción habilitada: {{ curso.inscripcion_habilitada }}</p>
+                <p>Fecha inicio: {{ curso.fecha_inicio_inscripcion }}</p>
+                <p>Fecha fin: {{ curso.fecha_fin_inscripcion }}</p>
+
+
+
+                {% if curso.inscripcion_habilitada %}
+                    <a href="{% url 'inscribirse' curso.id %}" class="btn-inscribirse">
+                        Inscribirme
+                    </a>
+                {% else %}
+                    <button class="btn-cerrado" disabled>
+                        Inscripción Cerrada
+                    </button>
+                {% endif %}
+            </div>
+
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
