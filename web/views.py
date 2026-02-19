@@ -3,6 +3,17 @@ from .models import Curso
 from .forms import InscripcionForm
 from .models import Curso, Novedad
 from .forms import ContactoForm
+from .models import Nosotros, MiembroEquipo
+
+def nosotros(request):
+    nosotros = Nosotros.objects.first()
+    equipo = MiembroEquipo.objects.all()
+
+    return render(request, 'web/nosotros.html', {
+        'nosotros': nosotros,
+        'equipo': equipo
+    })
+
 
 def contacto(request):
     if request.method == "POST":
@@ -45,8 +56,6 @@ def inicio(request):
     return render(request, 'web/inicio.html')
 
 
-def nosotros(request):
-    return render(request, 'web/nosotros.html')
 
 def lista_cursos(request):
     print("ENTRÉ A LISTA_CURSOS")

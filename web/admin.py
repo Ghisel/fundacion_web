@@ -1,6 +1,17 @@
 from django.contrib import admin
 from .models import Curso, Novedad, Inscripcion
 from .models import Contacto
+from .models import Nosotros, MiembroEquipo
+
+@admin.register(Nosotros)
+class NosotrosAdmin(admin.ModelAdmin):
+    list_display = ('titulo',)
+
+@admin.register(MiembroEquipo)
+class MiembroEquipoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'cargo', 'orden')
+    list_editable = ('orden',)
+
 
 @admin.register(Contacto)
 class ContactoAdmin(admin.ModelAdmin):

@@ -1,5 +1,46 @@
-{% extends 'web/base.html' %}
+{% extends "web/base.html" %}
+{% load static %}
 
 {% block content %}
-<h1>Nosotros</h1>
+
+<!-- HERO -->
+<section class="hero-nosotros" style="background-image: url('{{ nosotros.imagen.url }}');">
+    <div class="overlay">
+        <h1>{{ nosotros.titulo }}</h1>
+    </div>
+</section>
+
+<!-- HISTORIA -->
+<section class="contenedor">
+    <h2>Nuestra Historia</h2>
+    <p>{{ nosotros.historia }}</p>
+</section>
+
+<!-- MISION Y VISION -->
+<section class="mision-vision">
+    <div class="card">
+        <h3>Misión</h3>
+        <p>{{ nosotros.mision }}</p>
+    </div>
+    <div class="card">
+        <h3>Visión</h3>
+        <p>{{ nosotros.vision }}</p>
+    </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="equipo">
+    <h2>Nuestro Equipo</h2>
+    <div class="grid-equipo">
+        {% for miembro in equipo %}
+            <div class="miembro">
+                <img src="{{ miembro.foto.url }}" alt="{{ miembro.nombre }}">
+                <h4>{{ miembro.nombre }}</h4>
+                <span>{{ miembro.cargo }}</span>
+                <p>{{ miembro.descripcion }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
 {% endblock %}

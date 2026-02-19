@@ -1,0 +1,16 @@
+# Entorno virtual
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+
+# Base de datos
+db.sqlite3
+
+# Media (opcional si no querés subir imágenes)
+# media/
+
+# Archivos del sistema
+.DS_Store

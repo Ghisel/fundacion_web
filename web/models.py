@@ -116,3 +116,27 @@ class Contacto(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.asunto}"
+
+class Nosotros(models.Model):
+    titulo = models.CharField(max_length=200)
+    historia = models.TextField()
+    mision = models.TextField()
+    vision = models.TextField()
+    imagen = models.ImageField(upload_to='nosotros/', blank=True, null=True)
+
+    def __str__(self):
+        return self.titulo
+
+
+class MiembroEquipo(models.Model):
+    nombre = models.CharField(max_length=150)
+    cargo = models.CharField(max_length=150)
+    descripcion = models.TextField(blank=True)
+    foto = models.ImageField(upload_to='equipo/')
+    orden = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['orden']
+
+    def __str__(self):
+        return f"{self.nombre} - {self.cargo}"
