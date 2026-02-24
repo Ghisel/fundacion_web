@@ -76,23 +76,49 @@ body {
 
 /* ===== HERO INSTITUCIONAL ===== */
 
+/* ===== HERO CON IMAGEN ===== */
+
 .hero {
-    background-color: #FFFFFF;
-    padding: 100px 0;
+    position: relative;
+    height: 85vh;
+    background-image: url("/static/img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: white;
+
+}
+
+/* Capa oscura encima */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* Contenido por encima del overlay */
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: 48px;
     margin-bottom: 20px;
-    color: #333333;
+    color: white;
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 20px;
     max-width: 700px;
     margin: 0 auto 30px;
     line-height: 1.6;
+    color: white;
 }
 
 .btn-principal {
@@ -400,4 +426,6 @@ button:disabled {
     border-radius: 50%;
     margin-bottom: 15px;
 }
+
+
 

@@ -2,18 +2,142 @@
 
 {% block content %}
 
-<h1>Inscripción al curso</h1>
+<style>
+    .inscripcion-container {
+        max-width: 750px;
+        margin: 60px auto;
+        padding: 40px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        font-family: Arial, sans-serif;
+        line-height: 1.7;
+    }
 
-<h2>{{ curso.nombre }}</h2>
+    .inscripcion-container h1 {
+        margin-bottom: 5px;
+    }
 
-<form method="post" enctype="multipart/form-data">
+    .inscripcion-container h2 {
+        margin-top: 0;
+        color: #666;
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
 
-    {% csrf_token %}
+    .inscripcion-container hr {
+        margin: 30px 0;
+        border: none;
+        height: 1px;
+        background-color: #eee;
+    }
 
-    {{ form.as_p }}
+    /* LISTAS VISIBLES */
+    .inscripcion-container ul {
+        padding-left: 25px;
+        list-style: disc;
+    }
 
-    <button type="submit">Enviar inscripción</button>
+    .inscripcion-container ul li {
+        margin-bottom: 10px;
+    }
 
-</form>
+    .datos-bancarios {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .mensaje-importante {
+        background-color: #fff8e1;
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 15px;
+        font-size: 14px;
+        border-left: 4px solid #ffc107;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    form p {
+        margin-bottom: 18px;
+    }
+
+    form input, form select, form textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-top: 5px;
+        box-sizing: border-box;
+    }
+
+    .boton-enviar {
+        margin-top: 15px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 12px 22px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .boton-enviar:hover {
+        background-color: #333;
+    }
+</style>
+
+<div class="inscripcion-container">
+
+    <h1>Inscripción al curso</h1>
+    <h2>{{ curso.nombre }}</h2>
+
+    <hr>
+
+    <h3>📌 ¿Cómo realizar la inscripción?</h3>
+
+    <p>
+        Para completar tu inscripción en este curso, seguí los siguientes pasos:
+    </p>
+
+    <ul>
+        <li>Realizá una transferencia bancaria por el valor correspondiente al curso.</li>
+        <li>Utilizá los datos que se detallan a continuación.</li>
+        <li>Una vez realizada la transferencia, subí el comprobante en el formulario que aparece más abajo.</li>
+        <li>Nuestro equipo verificará el pago y se pondrá en contacto con vos para confirmarte la inscripción y enviarte tu usuario y contraseña de acceso.</li>
+    </ul>
+
+    <hr>
+
+    <h3>💳 Datos para realizar la transferencia</h3>
+
+    <div class="datos-bancarios">
+        <ul>
+            <li><strong>Alias:</strong> fundacion</li>
+            <li><strong>CBU:</strong> 0000003100000000000000</li>
+            <li><strong>Titular:</strong> Fundación</li>
+            <li><strong>Banco:</strong> (Nombre del banco)</li>
+        </ul>
+    </div>
+
+    <div class="mensaje-importante">
+        🔔 <strong>Importante:</strong> En el concepto o descripción de la transferencia, indicá el nombre completo del alumno para poder identificar el pago.
+    </div>
+
+    <hr>
+
+    <h3>📎 Subir comprobante de pago</h3>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="boton-enviar">Enviar inscripción</button>
+    </form>
+
+</div>
 
 {% endblock %}
