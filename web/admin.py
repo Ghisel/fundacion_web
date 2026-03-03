@@ -2,6 +2,19 @@ from django.contrib import admin
 from .models import Curso, Novedad, Inscripcion
 from .models import Contacto
 from .models import Nosotros, MiembroEquipo
+from .models import Servicio
+from .models import NosotrosImagen
+
+@admin.register(NosotrosImagen)
+class NosotrosImagenAdmin(admin.ModelAdmin):
+    list_display = ('id', 'orden', 'activa')
+    list_editable = ('orden', 'activa')
+
+@admin.register(Servicio)
+class ServicioAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'orden', 'activo')
+    list_editable = ('orden', 'activo')
+    search_fields = ('titulo',)
 
 @admin.register(Nosotros)
 class NosotrosAdmin(admin.ModelAdmin):

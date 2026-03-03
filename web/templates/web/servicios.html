@@ -1,0 +1,19 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+
+<section class="servicios-container">
+    <h1>Nuestros Servicios</h1>
+
+    <div class="grid-servicios">
+        {% for servicio in servicios %}
+            <div class="card-servicio">
+                <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo }}">
+                <h3>{{ servicio.titulo }}</h3>
+                <p>{{ servicio.descripcion }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

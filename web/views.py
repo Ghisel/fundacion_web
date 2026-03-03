@@ -3,18 +3,30 @@ from .models import Curso
 from .forms import InscripcionForm
 from .models import Curso, Novedad
 from .forms import ContactoForm
-from .models import Nosotros, MiembroEquipo
+from .models import Nosotros, MiembroEquipo, NosotrosImagen
+from .models import Curso, Inscripcion
+from .models import Servicio
 
+#--------------------------
+def servicios(request):
+    servicios = Servicio.objects.filter(activo=True)
+    return render(request, 'web/servicios.html', {
+        'servicios': servicios
+    })
+
+#-------------------------
 def nosotros(request):
     nosotros = Nosotros.objects.first()
     equipo = MiembroEquipo.objects.all()
+    imagenes = NosotrosImagen.objects.filter(activa=True)
 
     return render(request, 'web/nosotros.html', {
         'nosotros': nosotros,
-        'equipo': equipo
+        'equipo': equipo,
+        'imagenes': imagenes
     })
 
-
+#-------------------------
 def contacto(request):
     if request.method == "POST":
         form = ContactoForm(request.POST)
@@ -27,7 +39,7 @@ def contacto(request):
     return render(request, "web/contacto.html", {"form": form})
 
 
-
+#-------------------------
 def inscribirse(request, curso_id):
 
     curso = get_object_or_404(Curso, id=curso_id)
@@ -36,6 +48,16 @@ def inscribirse(request, curso_id):
         form = InscripcionForm(request.POST, request.FILES)
 
         if form.is_valid():
+            dni = form.cleaned_data['dni']
+
+            # 🔎 Verificar si el DNI ya está registrado en ese curso
+            if Inscripcion.objects.filter(curso=curso, dni=dni).exists():
+                return render(request, 'web/inscribirse.html', {
+                    'form': form,
+                    'curso': curso,
+                    'error_dni': "Este DNI ya está registrado en este curso."
+                })
+
             inscripcion = form.save(commit=False)
             inscripcion.curso = curso
             inscripcion.save()
@@ -51,18 +73,19 @@ def inscribirse(request, curso_id):
         'curso': curso
     })
 
+#-------------------------
 def inicio(request):
     print("ENTRÉ A INICIO")
     return render(request, 'web/inicio.html')
 
-
-
+#-------------------------
 def lista_cursos(request):
     print("ENTRÉ A LISTA_CURSOS")
     cursos = Curso.objects.all()
     print("CURSOS:", cursos)
     return render(request, 'web/cursos.html', {'cursos': cursos})
 
+#-------------------------
 def novedades(request):
     print("ENTRÉ A NOVEDADES")
     novedades = Novedad.objects.all().order_by('-fecha_creacion')

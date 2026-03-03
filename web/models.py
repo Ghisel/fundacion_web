@@ -140,3 +140,28 @@ class MiembroEquipo(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.cargo}"
+#Modelo del Items servicio con sus elementos correspondientes
+class Servicio(models.Model):
+    titulo = models.CharField(max_length=200)
+    descripcion = models.TextField()
+    imagen = models.ImageField(upload_to='servicios/')
+    orden = models.PositiveIntegerField(default=0)
+    activo = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['orden']
+
+    def __str__(self):
+        return self.titulo
+
+#----------------------------------
+class NosotrosImagen(models.Model):
+    imagen = models.ImageField(upload_to='nosotros/carrusel/')
+    orden = models.PositiveIntegerField(default=0)
+    activa = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['orden']
+
+    def __str__(self):
+        return f"Imagen {self.id}"        

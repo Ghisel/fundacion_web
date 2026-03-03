@@ -1,7 +1,11 @@
 {% extends 'web/base.html' %}
 
 {% block content %}
-
+{% if error_dni %}
+    <div class="alert-error">
+        {{ error_dni }}
+    </div>
+{% endif %}
 <style>
     .inscripcion-container {
         max-width: 750px;
@@ -88,6 +92,14 @@
 
     .boton-enviar:hover {
         background-color: #333;
+    }
+    .alert-error {
+    background: #ffe6e6;
+    color: #a10000;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
     }
 </style>
 

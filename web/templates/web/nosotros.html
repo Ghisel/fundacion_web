@@ -4,9 +4,20 @@
 {% block content %}
 
 <!-- HERO -->
-<section class="hero-nosotros" style="background-image: url('{{ nosotros.imagen.url }}');">
-    <div class="overlay">
-        <h1>{{ nosotros.titulo }}</h1>
+<!-- HERO CARRUSEL -->
+<section class="hero-nosotros">
+    <div class="carrusel">
+
+        {% for img in imagenes %}
+            <div class="slide {% if forloop.first %}activo{% endif %}">
+                <img src="{{ img.imagen.url }}" alt="Imagen institucional">
+            </div>
+        {% endfor %}
+
+        <div class="overlay">
+            <h1>{{ nosotros.titulo }}</h1>
+        </div>
+
     </div>
 </section>
 

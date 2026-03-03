@@ -1,3 +1,19 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+
+    function cambiarSlide() {
+        slides[index].classList.remove("activo");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("activo");
+    }
+
+    if (slides.length > 1) {
+        setInterval(cambiarSlide, 4000); // cambia cada 4 segundos
+    }
+});
+</script>
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -20,10 +36,11 @@
             <nav class="nav">
                 <a href="{% url 'inicio' %}">Inicio</a>
                 <a href="{% url 'nosotros' %}">Nosotros</a>
+                <a href="{% url 'servicios' %}">Servicios</a>
                 <a href="{% url 'cursos' %}">Cursos</a>
                 <a href="{% url 'novedades' %}">Novedades</a>
                 <a href="{% url 'contacto' %}">Contacto</a>
-                <a href="https://moodle.org/?lang=es_ar" class="btn-nav" target="_blank">Mi curso</a>
+                <a href="https://moodle.org/?lang=es_ar" class="btn-nav" target="_blank">Aula Virtual</a>
             </nav>
         </div>
     </header>

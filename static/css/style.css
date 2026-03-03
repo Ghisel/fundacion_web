@@ -427,5 +427,133 @@ button:disabled {
     margin-bottom: 15px;
 }
 
+.inscripcion-exitosa-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    background: #f8f9fa;
+}
 
+.card-exito {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    max-width: 600px;
+}
 
+.icono-exito {
+    font-size: 60px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.card-exito h1 {
+    margin-bottom: 20px;
+}
+
+.curso-nombre {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.btn-volver:hover {
+    background: #333;
+}
+
+.servicios-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card-servicio {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.card-servicio:hover {
+    transform: translateY(-5px);
+}
+
+.card-servicio img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-servicio h3 {
+    margin: 20px 0 10px 0;
+}
+
+.card-servicio p {
+    padding: 0 20px 20px 20px;
+}
+.hero-nosotros {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+}
+
+.carrusel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide.activo {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 10;
+}

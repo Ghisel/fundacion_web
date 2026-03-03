@@ -1,13 +1,34 @@
 {% extends 'web/base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h1>Inscripción enviada correctamente</h1>
+<section class="inscripcion-exitosa-container">
 
-<p>Tu inscripción al curso "{{ curso.nombre }}" fue registrada.</p>
+    <div class="card-exito">
 
-<p>El administrador revisará tu comprobante.</p>
+        <div class="icono-exito">✔</div>
 
-<a href="/cursos/">Volver a cursos</a>
+        <h1>Inscripción enviada correctamente</h1>
+
+        <p class="curso-nombre">
+            Curso: <strong>{{ curso.nombre }}</strong>
+        </p>
+
+        <p>
+            Hemos recibido tu inscripción y el comprobante de pago.
+        </p>
+
+        <p>
+            Nuestro equipo revisará la información y te notificará a la brevedad.
+        </p>
+
+        <a href="{% url 'cursos' %}" class="btn-volver">
+            Volver a cursos
+        </a>
+
+    </div>
+
+</section>
 
 {% endblock %}
